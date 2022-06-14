@@ -1,0 +1,59 @@
+:q
+:l src/Wordle.hs
+:q
+makePattern "hoge" "huga"
+:load src/Wordle.hs
+makePattern "hoge" "huga"
+:r
+makePattern "hoge" "huga"
+:r
+makePattern "hoge" "huga"
+:r
+:l src/Wordle.hs
+:q
+:l src/Wordle.hs
+:q
+length dict
+length
+lemgth
+putStr $ unlines dict
+dict = initialDict (words hoge)
+hoge <- readFile "/usr/share/dict/words"
+length dict
+putStr $ unlines dict
+dict = initialDict (words hoge)
+import Wordle
+putStr $ unlines $ words hoge
+:t hoge
+hoge <- readFile "/usr/share/dict/words"
+:l src/Wordle.hs
+:l src/Wordle.hs
+:q
+dict = initialDict (words hoge)
+import Wordle
+dict = initialDict (words hoge)
+import Wordle
+import wordle
+import Wordle
+putStr $ unlines dicte
+dict = initialDict (words hoge)
+dict5 = initialDict (words hoge)
+:import Wordle
+dict5 = initalDict (words hoge)
+putStr $ unlines $ words hoge
+:t hoge
+hoge <- readFile "/usr/share/dict/words"
+:l src/Wordle.hs
+:q
+ :l src/Wordle.hs
+putStr $ unlines $ words hoge
+:t hoge
+ hoge <- readFile "/usr/share/dict/words"
+:t hoge
+ hoge <- readFile "/use/share/dict/words"
+ :l src/Wordle.hs
+:q
+putStr $ unlines $ words hoge
+:t hoge
+hoge <- readFile "/use/share/dict/words"
+:l src/Wordle.hs

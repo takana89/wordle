@@ -1,6 +1,6 @@
 .stack-work/
 dist-new/
-simple-interactive-program.cabal
+*.cabal
 *.log
 core
 core.*

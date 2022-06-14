@@ -12,8 +12,12 @@ import Interact
 なんか関数
 なんか関数
 -}
-
-responser :: String -> [String] -> [String]
+{-
+data Maybe a
+    = Nothing
+    | Just a
+-}
+responser :: String -> ([String] -> [String])
 responser extra = mapMaybe output . eval . initial extra
 
 data MachineState
