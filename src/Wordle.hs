@@ -4,6 +4,7 @@ module Wordle where
 import Data.Maybe
 import Interact
 import Data.Char
+import Data.List
 
 {- | 
 任意の入力列をそれぞれの入力文字列を"なんか関数"に変換
@@ -75,8 +76,34 @@ predicate guess pattern candidate
 makePattern :: Guess -> Candidate -> Pattern
 makePattern guess candidate
     = case unzip (zipWith proc1 guess candidate) of
-        (guess', candidate') -> undefined
+        (guess', candidate') -> case mapAccumL proc2 candidate' guess' of
+            (candidate'', guess'') -> guess''
     where
         proc1 c d | c == d    = ('-', '-')
                   | otherwise = ( c , d)
- 
+        proc2 ds c 
+            | c == '-' = (ds, c)
+            | otherwise = case break (c ==) ds of
+            (xs, [])   -> (xs, '*')
+            (xs, y:ys) -> (xs ++ '+':ys, '+')
+
+{-
+mapAccumL :: (acc -> a -> (acc, b)) -> acc -> [a] -> (acc, [b])
+mapAccumL f acc0 xs = case xs of
+    []   -> (acc0, [])
+    y:ys -> case f acc0 y of
+        (acc1, z) -> case mapAccumL f acc1 ys of
+            (acc, zs) -> (acc, z:zs)
+
+    mapAccumL proc2 "gl-om" "mo-dy"
+=   { mapAccumL と proc2  の定義 }
+    proc2 "gl-om" 'm' = ("gl-o+", '+') なので
+    case mapAccumL proc2 "gl-o+" "o-dy" of
+        (acc, zs) -> (acc, '+':zs)
+
+       [a1,  a2, .. , an]
+        |     |        |
+acc0 -> f  -> f -> ->  f  -> accn
+        |     |        |
+        b1    b2       bn
+-}
